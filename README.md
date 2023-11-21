@@ -9,3 +9,4 @@ npm i sequelize
 npm i mysql2
 npm i dotenv
 npm i bcrypt
+npm run seed

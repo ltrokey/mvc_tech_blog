@@ -11,16 +11,6 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    updated_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,8 +30,6 @@ Post.init(
   {
     sequelize,
     timestamps: true,
-    updatedAt: "updated_at",
-    createdAt: "created_at",
     freezeTableName: true,
     underscored: true,
     modelName: "post",

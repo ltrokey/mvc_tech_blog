@@ -5,7 +5,7 @@ const dashboardRoutes = require("./dashboardRoutes");
 const { errorHandler, notFoundHandler } = require("../utils/helpers");
 
 router.use("/api", apiRoutes);
-router.use("/home", homeRoutes);
+router.use("/", homeRoutes);
 router.use("/dashboard", dashboardRoutes);
 
 router.use(notFoundHandler);
