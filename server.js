@@ -35,5 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(port, () => console.log(`Now listening, http://localhost:${port}`))
+  app.listen(port, () =>
+    console.log(`Now listening, http://localhost:${port}`)
+  );
 });
