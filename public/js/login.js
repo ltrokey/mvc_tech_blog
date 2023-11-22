@@ -13,8 +13,6 @@ const loginFormHandler = async (event) => {
       });
 
       if (res.ok) {
-        const data = await res.json();
-
         document.location.replace("/dashboard");
       } else {
         console.error("Failed to log in");
