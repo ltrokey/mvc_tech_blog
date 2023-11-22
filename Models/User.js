@@ -19,6 +19,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -32,6 +33,7 @@ User.init(
     hooks: {
       async beforeCreate(newUserPwData) {
         try {
+          newUserPwData.username = newUserPwData.username.toLowerCase();
           newUserPwData.password = await bcrypt.hash(
             newUserPwData.password,
             10

@@ -1,25 +1,32 @@
 const loginFormHandler = async (event) => {
-    event.preventDefault()
+  event.preventDefault();
 
-    const username = document.querySelector('#username').value.trim();
-    const password = document.querySelector('#password').value.trim()
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
-    if (username && password) {
-        const res = await fetch('/api/users/login', {
-            // check this route?
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        })
-        if (res.ok) {
-            document.location.replace('/dashboard')
-            // check this route
-        } else {
-            alert("Failed to log in")
-        }
+  if (username && password) {
+    try {
+      const res = await fetch("/api/users/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+
+        document.location.replace("/dashboard");
+      } else {
+        console.error("Failed to log in");
+        alert("Failed to log in. Please check your credentials and try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An unexpected error occurred. Please try again later.");
     }
-}
+  }
+};
 
 document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);

@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const bcrypt = require("bcrypt");
 
 const userData = [
   {
@@ -53,9 +54,25 @@ const userData = [
   },
 ];
 
+// Convert all usernames to lowercase
+const userDataLowercase = userData.map((user) => ({
+  ...user,
+  username: user.username.toLowerCase(),
+}));
+
 const seedUsers = async () => {
   try {
-    await User.bulkCreate(userData);
+    const usersWithHashedPasswords = await Promise.all(
+      userDataLowercase.map(async (user) => {
+        const hashedPassword = await bcrypt.hash(user.password, 10);
+        return {
+          ...user,
+          password: hashedPassword,
+        };
+      })
+    );
+
+    await User.bulkCreate(usersWithHashedPasswords);
     console.log("Users seeded successfully!");
   } catch (error) {
     console.error("Error during users seeding:", error);
