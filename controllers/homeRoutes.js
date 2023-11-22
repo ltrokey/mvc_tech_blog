@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const { errorHandler, notFoundHandler } = require("../utils/helpers");
-
-// TODO Import custom middleware ('./utils/auth)
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res, next) => {
   try {
@@ -36,6 +35,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//TODO GET one Comment, add in middleware for login
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
 
 module.exports = router;
