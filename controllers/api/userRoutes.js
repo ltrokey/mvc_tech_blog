@@ -58,6 +58,7 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
       res
@@ -73,16 +74,11 @@ router.post("/login", async (req, res) => {
 // user logout
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
-    req.session.destroy((err) => {
-      if (err) {
-        console.error("Error during logout:", err);
-        res.status(500).json({ message: "Logout failed. Please try again." });
-      } else {
-        res.status(200).json({ message: "Logout successful, see you soon!" });
-      }
+    req.session.destroy(() => {
+      res.status(204).end();
     });
   } else {
-    res.status(404).json({ message: "No user currently logged in." });
+    res.status(404).end();
   }
 });
 

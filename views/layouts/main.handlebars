@@ -15,7 +15,7 @@
           <a href="/">Home</a>
           <a href="/dashboard">Dashboard</a>
           <a href="/create">Create Post</a>
-          <a href="/logout">Logout</a>
+          <button id="logout">Logout</button>
         {{else}}
           <a href="/">Home</a>
           <a href="/dashboard">Dashboard</a>
@@ -36,6 +36,10 @@
       <p>WiredWhimsy by
         <a href="https://github.com/ltrokey">Lacey Trokey</a></p>
     </foot>
+
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 
   </body>
 
