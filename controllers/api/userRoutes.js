@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedin = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(dbUserData);
     });
@@ -58,9 +58,7 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedin = true;
+      req.session.loggedIn = true;
 
       res
         .status(200)
@@ -74,7 +72,7 @@ router.post("/login", async (req, res) => {
 
 // user logout
 router.post("/logout", (req, res) => {
-  if (req.session.loggedin) {
+  if (req.session.loggedIn) {
     req.session.destroy((err) => {
       if (err) {
         console.error("Error during logout:", err);
