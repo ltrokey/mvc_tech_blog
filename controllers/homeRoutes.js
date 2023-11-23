@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
 
     res.render("homepage", {
       posts,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   } catch (error) {
     errorHandler(error, req, res, next);
@@ -42,7 +42,7 @@ router.get("/post/:id", async (req, res, next) => {
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id","username"],
         },
         {
           model: Comment,
@@ -58,8 +58,11 @@ router.get("/post/:id", async (req, res, next) => {
     });
 
     const post = dbPostData.get({ plain: true });
+    const user = await User.findByPk(req.session.user_id);
+    const usersPost = post.user.id == user.id
 
     res.render("singlePost", {
+      usersPost,
       post,
       loggedIn: req.session.loggedIn,
     });
@@ -92,7 +95,7 @@ router.get("/createPost", (req, res) => {
     return;
   }
   res.render("createPost", {
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
   });
 });
 
