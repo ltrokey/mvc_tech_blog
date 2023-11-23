@@ -29,7 +29,7 @@ router.get("/", withAuth, async (req, res, next) => {
       ],
     });
 
-    const user = await User.findByPk(req.session.user_id);
+    const user = await User.findByPk(req.session.user_id)
 
     const userPosts = dbUserPosts.map((post) => post.get({ plain: true }));
 

@@ -28,6 +28,7 @@ router.get("/", async (req, res, next) => {
 
     res.render("homepage", {
       posts,
+      loggedIn: req.session.loggedIn
     });
   } catch (error) {
     errorHandler(error, req, res, next);
@@ -83,6 +84,16 @@ router.get("/signUp", (req, res) => {
   }
 
   res.render("signUp");
+});
+
+router.get("/createPost", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("createPost", {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 module.exports = router;

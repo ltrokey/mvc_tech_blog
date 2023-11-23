@@ -11,14 +11,12 @@
     <header>
       <h1>Welcome to WiredWhimsy!</h1>
       <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
         {{#if loggedIn}}
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
-          <a href="/create">Create Post</a>
+          <a href="/createPost">Create New Post</a>
           <button id="logout">Logout</button>
         {{else}}
-          <a href="/">Home</a>
-          <a href="/dashboard">Dashboard</a>
           <a href="/login">Login</a>
           <a href="/signUp">Sign Up</a>
         {{/if}}
