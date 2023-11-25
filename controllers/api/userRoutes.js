@@ -1,18 +1,6 @@
 const router = require("express").Router();
+const { errorHandler, notFoundHandler } = require("../../utils/helpers");
 const { User, Post, Comment } = require("../../models");
-
-// GET all users
-// router.get("/", async (req, res) => {
-//   try {
-//     const dbUsersData = await User.findAll({
-//       attributes: { exclude: ["password"] },
-//     });
-//     res.json(dbUsersData);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 // CREATE new user
 router.post("/signUp", async (req, res) => {
@@ -29,9 +17,9 @@ router.post("/signUp", async (req, res) => {
 
       res.status(200).json(dbUserData);
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+  } catch (error) {
+    console.error(error);
+    errorHandler(error, req, res, next);
   }
 });
 
@@ -69,9 +57,9 @@ router.post("/login", async (req, res) => {
         .status(200)
         .json({ user: dbUserData, message: "You are now logged in!" });
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+  } catch (error) {
+    console.error(error);
+    errorHandler(error, req, res, next);
   }
 });
 
@@ -82,7 +70,7 @@ router.post("/logout", (req, res) => {
       res.status(204).end();
     });
   } else {
-    res.status(404).end();
+    return notFoundHandler(req, res, next);
   }
 });
 

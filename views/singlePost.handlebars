@@ -1,16 +1,24 @@
-
-
 <div class="post">
+
   <h2>{{post.title}}</h2>
+
   <p class="post-meta">Posted by
     {{post.user.username}}
-    on
-    {{format_date post.created_at}}</p>
+
+    {{#if updated_at}}
+      Updated on {{format_date post.updated_at}}
+
+    {{else}}
+      Posted on {{format_date post.created_at}}</p>
+    {{/if}}
+
   <p>{{post.body}}</p>
+
   {{#if usersPost}}
-    <a href="/editPost/{{post.id}}"><button>Edit</button></a>
+    <a href="/post/{{post.id}}/edit"><button>Edit</button></a>
     <button>Delete</button>
   {{/if}}
+
 </div>
 
 <div class="comments">
@@ -23,6 +31,7 @@
       <input type="hidden" name="post_id" value="{{post.id}}" />
       <button type="submit">Submit Comment</button>
     </form>
+
   {{else}}
     <p>Login to leave a comment.</p>
   {{/if}}
@@ -40,6 +49,7 @@
         </li>
       {{/each}}
     </ul>
+
   {{else}}
     <p>No comments yet.</p>
   {{/if}}

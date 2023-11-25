@@ -42,7 +42,7 @@ router.get("/post/:id", async (req, res, next) => {
       include: [
         {
           model: User,
-          attributes: ["id","username"],
+          attributes: ["id", "username"],
         },
         {
           model: Comment,
@@ -58,8 +58,10 @@ router.get("/post/:id", async (req, res, next) => {
     });
 
     const post = dbPostData.get({ plain: true });
-    const user = await User.findByPk(req.session.user_id);
-    const usersPost = post.user.id == user.id
+    const user = req.session.user_id
+      ? await User.findByPk(req.session.user_id)
+      : null;
+    const usersPost = user ? post.user.id == user.id : false;
 
     res.render("singlePost", {
       usersPost,
@@ -95,6 +97,16 @@ router.get("/createPost", (req, res) => {
     return;
   }
   res.render("createPost", {
+    loggedIn: req.session.loggedIn,
+  });
+});
+
+router.get("/post/:id/edit", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("editPost", {
     loggedIn: req.session.loggedIn,
   });
 });

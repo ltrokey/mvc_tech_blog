@@ -48,7 +48,30 @@ router.post("/", withAuth, async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    errorHandler(error, req, res, next);
+    res.status(500).json({ error: "Failed to create a new post." });
+  }
+});
+
+//EDIT a Post
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+        updated_at: new Date(),
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    res.status(200).json({ message: "Post updated successfully." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to update the post." });
   }
 });
 
