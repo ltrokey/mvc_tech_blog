@@ -3,8 +3,12 @@
     <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
     <p class="post-meta">Posted by
       {{post.user.username}}
-      on
-      {{format_date post.created_at}}</p>
-    <p>{{post.body}}</p>
+        {{#if (compareDates updated_at created_at) }}
+           Updated on {{format_date updated_at}}</p>
+        {{else}}
+           Posted on {{format_date created_at}}</p>
+        {{/if}}
+    <p>{{post.content}}</p>
   </div>
 {{/each}}
+

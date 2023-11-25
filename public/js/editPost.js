@@ -8,8 +8,6 @@ const editPostFormHandler = async (event) => {
   // Retrieve other form data
   const title = document.querySelector("#title").value.trim();
   const content = document.querySelector("#content").value.trim();
-  console.log("title", title);
-  console.log("content", content);
 
   // Validate form data
   if (!title || !content) {

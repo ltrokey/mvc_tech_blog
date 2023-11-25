@@ -5,14 +5,14 @@
   <p class="post-meta">Posted by
     {{post.user.username}}
 
-    {{#if updated_at}}
+    {{#if (compareDates post.updated_at post.created_at) }}
       Updated on {{format_date post.updated_at}}
 
     {{else}}
       Posted on {{format_date post.created_at}}</p>
     {{/if}}
 
-  <p>{{post.body}}</p>
+  <p>{{post.content}}</p>
 
   {{#if usersPost}}
     <a href="/post/{{post.id}}/edit"><button>Edit</button></a>

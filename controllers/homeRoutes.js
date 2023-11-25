@@ -5,7 +5,7 @@ const { errorHandler, notFoundHandler } = require("../utils/helpers");
 router.get("/", async (req, res, next) => {
   try {
     const dbPostsData = await Post.findAll({
-      attributes: ["id", "created_at", "updated_at", "title", "body"],
+      attributes: ["id", "created_at", "updated_at", "title", "content"],
       include: [
         {
           model: User,
@@ -38,7 +38,7 @@ router.get("/", async (req, res, next) => {
 router.get("/post/:id", async (req, res, next) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
-      attributes: ["id", "created_at", "updated_at", "title", "body"],
+      attributes: ["id", "created_at", "updated_at", "title", "content"],
       include: [
         {
           model: User,
@@ -58,6 +58,7 @@ router.get("/post/:id", async (req, res, next) => {
     });
 
     const post = dbPostData.get({ plain: true });
+
     const user = req.session.user_id
       ? await User.findByPk(req.session.user_id)
       : null;
@@ -101,14 +102,24 @@ router.get("/createPost", (req, res) => {
   });
 });
 
-router.get("/post/:id/edit", (req, res) => {
+router.get("/post/:id/edit", async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      attributes: ["id", "created_at", "updated_at", "title", "content"],
+    });
+
+    const post = dbPostData.get({ plain: true });
   if (!req.session.loggedIn) {
     res.redirect("/login");
     return;
   }
   res.render("editPost", {
+    post,
     loggedIn: req.session.loggedIn,
   });
+  } catch (error) {
+    errorHandler(error, req, res, next);
+  }
 });
 
 module.exports = router;

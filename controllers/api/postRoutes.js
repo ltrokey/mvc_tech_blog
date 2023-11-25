@@ -8,7 +8,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     await Post.create({
       title: req.body.title,
-      body: req.body.body,
+      content: req.body.content,
       user_id: req.session.user_id,
     });
 
@@ -22,7 +22,7 @@ router.post("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ["id", "created_at", "updated_at", "title", "body"],
+      attributes: ["id", "created_at", "updated_at", "title", "content"],
       include: [
         {
           model: Comment,
