@@ -11,6 +11,7 @@ router.get("/", withAuth, async (req, res, next) => {
         user_id: req.session.user_id,
       },
       attributes: ["id", "created_at", "updated_at", "title", "content"],
+      order: [["updated_at", "DESC"]],
       include: [
         {
           model: User,
@@ -19,6 +20,7 @@ router.get("/", withAuth, async (req, res, next) => {
         {
           model: Comment,
           attributes: ["id", "created_at", "text", "user_id", "post_id"],
+          order: [["created_at", "DESC"]],
           include: [
             {
               model: User,

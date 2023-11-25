@@ -9,7 +9,7 @@
       <div class="post">
         <h3><a href="/post/{{id}}">{{title}}</a></h3>
 
-        {{#if (compareDates updated_at created_at) }}
+        {{#if (compareDates updated_at created_at)}}
           <p class="post-meta">Updated on {{format_date updated_at}}</p>
 
         {{else}}
@@ -23,7 +23,7 @@
 
 {{else}}
   <p>You haven't created any blog posts yet.
-    <a href="/create">Create one now</a>!</p>
+    <a href="/createPost">Create one now</a>!</p>
 {{/if}}
 
 <h3>Add a New Blog Post:</h3>

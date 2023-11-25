@@ -23,6 +23,7 @@ router.post("/", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
       attributes: ["id", "created_at", "updated_at", "title", "content"],
+      order: [["updated_at", "DESC"]],
       include: [
         {
           model: Comment,

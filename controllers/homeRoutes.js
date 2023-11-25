@@ -6,6 +6,7 @@ router.get("/", async (req, res, next) => {
   try {
     const dbPostsData = await Post.findAll({
       attributes: ["id", "created_at", "updated_at", "title", "content"],
+      order: [["updated_at", "DESC"]],
       include: [
         {
           model: User,
@@ -14,6 +15,7 @@ router.get("/", async (req, res, next) => {
         {
           model: Comment,
           attributes: ["id", "created_at", "text", "user_id", "post_id"],
+          order: [["created_at", "DESC"]],
           include: [
             {
               model: User,
@@ -47,6 +49,7 @@ router.get("/post/:id", async (req, res, next) => {
         {
           model: Comment,
           attributes: ["id", "created_at", "text", "user_id", "post_id"],
+          order: [["created_at", "DESC"]],
           include: [
             {
               model: User,
@@ -109,14 +112,14 @@ router.get("/post/:id/edit", async (req, res) => {
     });
 
     const post = dbPostData.get({ plain: true });
-  if (!req.session.loggedIn) {
-    res.redirect("/login");
-    return;
-  }
-  res.render("editPost", {
-    post,
-    loggedIn: req.session.loggedIn,
-  });
+    if (!req.session.loggedIn) {
+      res.redirect("/login");
+      return;
+    }
+    res.render("editPost", {
+      post,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (error) {
     errorHandler(error, req, res, next);
   }
