@@ -16,8 +16,9 @@
 
   {{#if usersPost}}
     <a href="/post/{{post.id}}/edit"><button>Edit</button></a>
-    <button>Delete</button>
+    <button onclick="deletePostHandler('{{post.id}}')">Delete</button>
   {{/if}}
+
 
 </div>
 
@@ -55,3 +56,5 @@
   {{/if}}
 
 </div>
+
+<script src="/js/deletePost.js"></script>
