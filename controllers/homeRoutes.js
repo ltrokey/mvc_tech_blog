@@ -49,7 +49,6 @@ router.get("/post/:id", async (req, res, next) => {
         {
           model: Comment,
           attributes: ["id", "created_at", "text", "user_id", "post_id"],
-          order: [["created_at", "DESC"]],
           include: [
             {
               model: User,
@@ -62,6 +61,11 @@ router.get("/post/:id", async (req, res, next) => {
 
     const post = dbPostData.get({ plain: true });
 
+    // Sort comments by created_at in descending order
+    const sortedComments = post.comments.sort(
+      (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    );
+
     const user = req.session.user_id
       ? await User.findByPk(req.session.user_id)
       : null;
@@ -69,7 +73,10 @@ router.get("/post/:id", async (req, res, next) => {
 
     res.render("singlePost", {
       usersPost,
-      post,
+      post: {
+        ...post,
+        comments: sortedComments,
+      },
       loggedIn: req.session.loggedIn,
     });
   } catch (error) {
@@ -82,7 +89,6 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-
   res.render("login");
 });
 
@@ -91,7 +97,6 @@ router.get("/signUp", (req, res) => {
     res.redirect("/");
     return;
   }
-
   res.render("signUp");
 });
 
