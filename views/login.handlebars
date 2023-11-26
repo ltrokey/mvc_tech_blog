@@ -1,15 +1,22 @@
-<div>
-  <form class="login-form" action="/api/users/login" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required />
+<div class="loginCard">
+  <form class="loginForm" action="/api/users/login" method="POST">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required />
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </div>
 
     <button type="submit">Login</button>
   </form>
 
-  <p>Don't have an account? <a href="/signUp">Sign up</a></p>
+  <div class="signUpText">
+    <p>Don't have an account? <a href="/signUp">Sign up</a></p>
+  </div>
+
 </div>
 
 <script src="/js/login.js"></script>
