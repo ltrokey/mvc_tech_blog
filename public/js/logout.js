@@ -13,6 +13,4 @@ const logOutHandler = async () => {
     console.error("Error during logout:", error);
   }
 };
-document
-.querySelector("#logout")
-.addEventListener("click", logOutHandler);
+document.querySelector("#logout").addEventListener("click", logOutHandler);

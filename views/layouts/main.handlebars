@@ -4,35 +4,48 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WiredWhimsy Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      integrity="sha384-Zf4oZYlw03DMFAAWea0sVsAFL6qoT2Agoh1Deit+H62i4CtqOsR3jXQn2h/EZc39"
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
 
   <body>
+
     <header>
-      <h1>Welcome to WiredWhimsy!</h1>
+      <h1>
+        <span id="welcomeText">Welcome to
+          <span id="wiredText">wired</span></span>
+        <span id="whimsyText">Whimsy!</span>
+      </h1>
+
       <nav>
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
         {{#if loggedIn}}
           <button id="logout">Logout</button>
         {{else}}
-          <a href="/login">Login</a>
-          <a href="/signUp">Sign Up</a>
+          <a href="/login" id="login">Login</a>
         {{/if}}
       </nav>
     </header>
 
     <main>
-      <h2>Get wired in...</h2>
-
-      {{{body}}}
+      <h2 id="wiredMessage">Get wired in...</h2>
+      <div class="cardBodyContainer">
+        {{{body}}}
+      </div>
 
     </main>
 
-    <foot>
-      <p>WiredWhimsy by
-        <a href="https://github.com/ltrokey">Lacey Trokey</a></p>
-    </foot>
+    <footer>
+      <p>wired<span>Whimsy</span>
+        <a href="https://github.com/ltrokey">by Lacey Trokey</a></p>
+    </footer>
 
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>

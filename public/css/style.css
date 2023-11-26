@@ -1,0 +1,166 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Arizonia&family=Oooh+Baby&family=Sacramento&display=swap");
+
+/* font-family: 'Amiri Quran', serif;
+font-family: 'Arizonia', cursive;
+font-family: 'Oooh Baby', cursive;
+font-family: 'Sacramento', cursive; */
+
+/* Global styles */
+
+/* Box sizing */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Colors */
+:root {
+  --primary-color: #1a8b9d;
+  --secondary-color: #b2d430;
+  --light-color: #fff5f5;
+  --dark-color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  margin: 0;
+  padding-bottom: 0.5em;
+  font-family: "Amiri Quran", serif;
+  color: var(--light-color);
+}
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main {
+  flex: 1;
+  padding: 2%;
+  background-color: var(--primary-color);
+}
+
+header {
+  background-color: var(--dark-color);
+}
+
+footer {
+  padding: 1%;
+  text-align: center;
+  background-color: var(--dark-color);
+}
+
+footer p {
+  color: var(--secondary-color);
+  font-family: "Amiri Quran", serif;
+  font-size: 1.5em;
+}
+
+footer span {
+  color: var(--primary-color);
+  font-family: "Oooh Baby", cursive;
+  font-size: larger;
+}
+
+footer a {
+  color: var(--light-color);
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: var(--light-color);
+}
+
+nav a {
+  font-family: "Amiri Quran", serif;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: var(--primary-color);
+  transition: transform 0.3s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+
+#welcomeText {
+  font-family: "Amiri Quran", serif;
+  color: var(--light-color);
+  font-size: 150%;
+}
+
+#wiredText {
+  color: var(--secondary-color);
+}
+
+#whimsyText {
+  font-family: "Oooh Baby", cursive;
+  font-size: 175%;
+  color: var(--primary-color);
+}
+
+#wiredMessage {
+  color: var(--secondary-color);
+  font-size: 2em;
+  letter-spacing: 5px;
+}
+
+.cardBodyContainer {
+  padding-left: 2%;
+}
+
+/* Responsive styles for screens 320px and below */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* Responsive styles for screens 2560px and below */
+@media (min-width: 2560px) {
+  body {
+    font-size: 20px;
+  }
+}
