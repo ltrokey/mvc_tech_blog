@@ -166,6 +166,10 @@ a:hover {
   transition: transform 0.3s;
 }
 
+#userName {
+  color: var(--secondary-color);
+}
+
 /* View Body Container */
 .cardBodyContainer {
   padding-left: 2%;
@@ -177,12 +181,17 @@ a:hover {
 
 /* Home Page & Dashboard */
 
+.userPostsContainer {
+  width: 100%;
+}
+.userPosts,
 .postCards {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
+.userPost,
 .postCard {
   margin-bottom: 1em;
   display: flex;

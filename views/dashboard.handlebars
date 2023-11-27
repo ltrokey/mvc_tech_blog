@@ -1,18 +1,16 @@
-<div class="postCards">
+<div class="userPostsContainer">
   <div>
-    <h2>Welcome to Your Dashboard, {{user.username}}!</h2>
-  </div>
+    <h2>Welcome to Your Dashboard,
+      <span id="userName">{{user.username}}</span>!</h2>
 
-  <div>
     <h3>Your Blog Posts:</h3>
   </div>
 
-  {{!-- <div class="postCard"> --}}
-
+  <div>
     <div class="userPosts">
       {{#if userPosts.length}}
         {{#each userPosts}}
-          <div class="post">
+          <div class="userPost">
             <h3><a href="/post/{{id}}">{{title}}</a></h3>
 
             {{#if (compareDates updated_at created_at)}}
@@ -24,19 +22,19 @@
 
           </div>
         {{/each}}
-    </div>
 
       {{else}}
-        <p>You haven't created any blog posts yet.
+        <p class="centered">You haven't created any blog posts yet.
           <a href="/createPost">Create one now</a>!
         </p>
       {{/if}}
-  {{!-- </div> --}}
+    </div>
 
-  <div class="newPostForm centered">
-    <h3>Add a new blog post?</h3>
-    <form action="/createPost" method="GET">
-      <button type="submit">New Post</button>
-    </form>
+    <div class="newPostForm centered">
+      <h3>Add a new blog post?</h3>
+      <form action="/createPost" method="GET">
+        <button type="submit">New Post</button>
+      </form>
+    </div>
   </div>
 </div>
