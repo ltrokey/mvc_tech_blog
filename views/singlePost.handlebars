@@ -12,6 +12,7 @@
       {{else}}
         <p>Posted on <span>{{format_date post.created_at}}</span></p>
       {{/if}}
+
     </div>
 
     <div class="postContent">
@@ -24,6 +25,7 @@
         <button onclick="deletePostHandler('{{post.id}}')">Delete</button>
       {{/if}}
     </div>
+
   </div>
 
   <div class="comments">
@@ -31,14 +33,18 @@
 
     {{#if loggedIn}}
       <div class="commentForm">
+
         <form action="/api/comments" method="POST">
           <label for="comment">Leave a Comment:</label>
           <textarea id="commentText" name="text" required></textarea>
           <input type="hidden" name="post_id" value="{{post.id}}" />
+
           <div class="centered">
             <button onclick="addCommentHandler()">Post Comment</button>
           </div>
+
         </form>
+
       </div>
 
     {{else}}

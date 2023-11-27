@@ -10,6 +10,7 @@
     <div class="userPosts">
       {{#if userPosts.length}}
         {{#each userPosts}}
+
           <div class="userPost">
             <h3><a href="/post/{{id}}">{{title}}</a></h3>
 
@@ -21,6 +22,7 @@
             {{/if}}
 
           </div>
+
         {{/each}}
 
       {{else}}
@@ -30,9 +32,11 @@
 
     <div class="newPostForm centered">
       <h3>Add a new blog post?</h3>
+
       <form action="/createPost" method="GET">
         <button type="submit">New Post</button>
       </form>
+
     </div>
   </div>
 </div>

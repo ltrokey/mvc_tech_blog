@@ -1,6 +1,7 @@
 /* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Arizonia&family=Oooh+Baby&family=Sacramento&display=swap");
 
+/* ------Font Family Names------ */
 /* font-family: 'Amiri Quran', serif;
 font-family: 'Arizonia', cursive;
 font-family: 'Oooh Baby', cursive;
@@ -129,6 +130,7 @@ a:hover {
   color: var(--secondary-color);
 }
 
+/* Ids */
 #welcomeText {
   font-family: "Amiri Quran", serif;
   color: var(--light-color);
@@ -170,6 +172,12 @@ a:hover {
   color: var(--secondary-color);
 }
 
+/* Class Selectors */
+
+.centered {
+  text-align: center;
+}
+
 /* View Body Container */
 .cardBodyContainer {
   padding-left: 2%;
@@ -180,7 +188,6 @@ a:hover {
 }
 
 /* Home Page & Dashboard */
-
 .userPostsContainer {
   width: 100%;
 }
@@ -325,10 +332,6 @@ a:hover {
   color: #2dddf8;
   font-family: "Oooh Baby", cursive;
   font-size: 1.5em;
-}
-
-.centered {
-  text-align: center;
 }
 
 .createForm form,
