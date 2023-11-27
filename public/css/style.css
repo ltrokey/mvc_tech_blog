@@ -198,11 +198,12 @@ a:hover {
   flex-direction: row;
   justify-content: space-between;
   padding: 1%;
-  background-color: var(--medium-color);
+  background-color: var(--light-color);
   border: 1px groove var(--light-color);
   border-radius: 8px;
 }
 
+.userPost a,
 .postCard a {
   font-family: "Oooh Baby", cursive;
   font-size: 20px;
@@ -258,6 +259,7 @@ a:hover {
 .loginForm button:hover {
   color: var(--secondary-color);
   transition: transform 0.3s;
+  border-radius: 8px;
 }
 
 .loginText,
@@ -279,7 +281,8 @@ a:hover {
 }
 
 /* Single, create & Edit Post */
-
+.createPostContainer,
+.editPostContainer,
 .singlePostContainer {
   width: 100%;
   background-color: var(--medium-color);
@@ -315,6 +318,8 @@ a:hover {
   transition: transform 0.3s;
 }
 
+.createPost,
+.editPost,
 .comments {
   padding: 2%;
   color: #2dddf8;
@@ -326,6 +331,8 @@ a:hover {
   text-align: center;
 }
 
+.createForm form,
+.editForm form,
 .commentForm form {
   margin-bottom: 1%;
   display: flex;
@@ -348,6 +355,8 @@ form textarea {
   border-radius: 8px;
 }
 
+.createForm button,
+.editForm button,
 .newPostForm button,
 .commentForm button {
   margin-top: 1%;
@@ -357,6 +366,8 @@ form textarea {
   border-radius: 8px;
 }
 
+.createForm button:hover,
+.editForm button:hover,
 .newPostForm button:hover,
 .commentForm button:hover {
   color: var(--dark-color);
