@@ -1,25 +1,33 @@
-<div>
+<div class="signUpCard">
+  <h3 class="centered">Sign Up</h3>
+  <form class="signUpForm" action="/api/users/signUp" method="POST">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+    </div>
 
-  <h3>Sign Up</h3>
-  <form class="signup-form" action="/api/users/signUp" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required />
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required />
-
-    <label for="confirmPassword">Confirm Password:</label>
-    <input
-      type="password"
-      id="confirmPassword"
-      name="confirmPassword"
-      required
-    />
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      />
+    </div>
 
     <button type="submit">Sign Up</button>
   </form>
 
-  <p>Already have an account? <a href="/login">Login</a></p>
+  <div class="loginText">
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+
 </div>
 
 <script src="/js/signUp.js"></script>

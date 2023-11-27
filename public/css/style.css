@@ -175,7 +175,8 @@ a:hover {
   height: auto;
 }
 
-/* Home Page */
+/* Home Page & Dashboard */
+
 .postCards {
   width: 100%;
   display: flex;
@@ -188,8 +189,8 @@ a:hover {
   flex-direction: row;
   justify-content: space-between;
   padding: 1%;
-  background-color: var(--light-color);
-  border: 1px groove var(--dark-color);
+  background-color: var(--medium-color);
+  border: 1px groove var(--light-color);
   border-radius: 8px;
 }
 
@@ -210,6 +211,7 @@ a:hover {
 }
 
 /* Login & Sign Up*/
+.signUpCard,
 .loginCard {
   background-color: var(--secondary-color);
   border-radius: 8px;
@@ -218,12 +220,14 @@ a:hover {
   width: 500px;
 }
 
+.signUpForm,
 .loginForm {
   display: flex;
   flex-direction: column;
   padding-bottom: 3%;
 }
 
+.signUpForm input,
 .loginForm input {
   width: 100%;
   padding: 8px;
@@ -231,6 +235,7 @@ a:hover {
   border-radius: 8px;
 }
 
+.signUpForm button,
 .loginForm button {
   padding: 1%;
   font-family: "Oooh Baby", cursive;
@@ -240,27 +245,31 @@ a:hover {
   border-radius: 8px;
 }
 
+.signUpForm button:hover,
 .loginForm button:hover {
   color: var(--secondary-color);
   transition: transform 0.3s;
 }
 
+.loginText,
 .signUpText {
   display: flex;
   justify-content: center;
 }
 
+.loginText a,
 .signUpText a {
   color: var(--primary-color);
   transition: transform 0.3s;
 }
 
+.loginText a:hover,
 .signUpText a:hover {
   text-decoration: none;
   color: var(--light-color);
 }
 
-/* Single Post */
+/* Single, create & Edit Post */
 
 .singlePostContainer {
   width: 100%;
@@ -319,6 +328,18 @@ form textarea {
   height: 75px;
 }
 
+.newPostForm {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: var(--light-color);
+  border: 1px groove var(--secondary-color);
+  border-radius: 8px;
+}
+
+.newPostForm button,
 .commentForm button {
   margin-top: 1%;
   padding: 5px;
@@ -327,6 +348,7 @@ form textarea {
   border-radius: 8px;
 }
 
+.newPostForm button:hover,
 .commentForm button:hover {
   color: var(--dark-color);
   background-color: #b2d430;
