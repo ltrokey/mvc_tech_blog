@@ -22,8 +22,11 @@ html {
 /* Colors */
 :root {
   --primary-color: #1a8b9d;
+  --primaryLight-color: #2dddf8;
   --secondary-color: #b2d430;
+  --secondaryDark-color: #1d2401;
   --light-color: #fff5f5;
+  --medium-color: #424748;
   --dark-color: #000000;
 }
 
@@ -191,6 +194,9 @@ a:hover {
 }
 
 .postCard a {
+  font-family: "Oooh Baby", cursive;
+  font-size: 20px;
+  letter-spacing: 2px;
   color: var(--dark-color);
 }
 
@@ -254,6 +260,95 @@ a:hover {
   color: var(--light-color);
 }
 
+/* Single Post */
+
+.singlePostContainer {
+  width: 100%;
+  background-color: var(--medium-color);
+}
+
+.post {
+  padding: 2%;
+}
+
+.postInfo {
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postInfo span {
+  color: var(--secondary-color);
+}
+
+.postContent {
+  margin-bottom: 1.5%;
+  padding: 1.5%;
+  background-color: var(--light-color);
+}
+
+.userActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userActions button:hover {
+  background-color: var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.comments {
+  padding: 2%;
+  color: #2dddf8;
+  font-family: "Oooh Baby", cursive;
+  font-size: 1.5em;
+}
+
+.centered {
+  text-align: center;
+}
+
+.commentForm form {
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+form textarea {
+  height: 75px;
+}
+
+.commentForm button {
+  margin-top: 1%;
+  padding: 5px;
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+
+.commentForm button:hover {
+  color: var(--dark-color);
+  background-color: #b2d430;
+  transition: transform 0.3s;
+}
+
+.commentsCard {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: var(--dark-color);
+}
+
+.commentsCard li {
+  margin-bottom: 1.5em;
+  list-style: none;
+}
+
+.commentsCard span {
+  padding-left: 1.5em;
+  color: var(--primaryLight-color);
+}
+
 /* Responsive styles for screens 320px and below */
 @media (max-width: 320px) {
   body {
@@ -264,9 +359,7 @@ a:hover {
     font-weight: bold;
     letter-spacing: 2px;
   }
-  /* .postCard {
-    flex-direction: column;
-  } */
+
   .loginCard {
     width: 320px;
   }
