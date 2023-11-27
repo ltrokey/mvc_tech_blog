@@ -1,0 +1,78 @@
+<div class="singlePostContainer">
+  <div class="post">
+
+    <h2>{{post.title}}</h2>
+
+    <div class="postInfo">
+      <p class="post-meta">Posted by <span>{{post.user.username}}</span></p>
+
+      {{#if (compareDates post.updated_at post.created_at)}}
+        <p>Updated on <span>{{format_date post.updated_at}}</span></p>
+
+      {{else}}
+        <p>Posted on <span>{{format_date post.created_at}}</span></p>
+      {{/if}}
+
+    </div>
+
+    <div class="postContent">
+      <p>{{post.content}}</p>
+    </div>
+
+    <div class="userActions">
+      {{#if usersPost}}
+        <a href="/post/{{post.id}}/edit"><button>Edit</button></a>
+        <button onclick="deletePostHandler('{{post.id}}')">Delete</button>
+      {{/if}}
+    </div>
+
+  </div>
+
+  <div class="comments">
+    <h3 class="centered">Comments</h3>
+
+    {{#if loggedIn}}
+      <div class="commentForm">
+
+        <form action="/api/comments" method="POST">
+          <label for="comment">Leave a Comment:</label>
+          <textarea id="commentText" name="text" required></textarea>
+          <input type="hidden" name="post_id" value="{{post.id}}" />
+
+          <div class="centered">
+            <button onclick="addCommentHandler()">Post Comment</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    {{else}}
+      <p>Login to leave a comment.</p>
+    {{/if}}
+
+    <div class="commentsCard">
+      {{#if post.comments.length}}
+
+        <ul>
+          {{#each post.comments as |comment|}}
+            <li>
+              <p class="comment-meta">Comment by
+                {{comment.user.username}}
+                on
+                {{format_date comment.created_at}}</p>
+              <p><span>💬 {{comment.text}}</span></p>
+            </li>
+          {{/each}}
+        </ul>
+
+      {{else}}
+        <p>No comments yet.</p>
+      {{/if}}
+    </div>
+
+  </div>
+</div>
+
+<script src="/js/deletePost.js"></script>
+<script src="/js/addComment.js"></script>

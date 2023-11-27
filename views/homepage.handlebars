@@ -1,0 +1,23 @@
+<div class="postCards">
+
+  {{#each posts as |post|}}
+
+    <div class="postCard">
+
+      <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
+
+      <p class="post-meta">
+        {{#if (compareDates updated_at created_at)}}
+          Updated on
+          {{format_date updated_at}}
+        {{else}}
+          Posted on
+          {{format_date created_at}}
+        {{/if}}
+      </p>
+
+    </div>
+
+  {{/each}}
+
+</div>

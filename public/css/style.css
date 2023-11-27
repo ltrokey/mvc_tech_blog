@@ -1,0 +1,423 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Arizonia&family=Oooh+Baby&family=Sacramento&display=swap");
+
+/* ------Font Family Names------ */
+/* font-family: 'Amiri Quran', serif;
+font-family: 'Arizonia', cursive;
+font-family: 'Oooh Baby', cursive;
+font-family: 'Sacramento', cursive; */
+
+/* Global styles */
+
+/* Box sizing */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Colors */
+:root {
+  --primary-color: #1a8b9d;
+  --primaryLight-color: #2dddf8;
+  --secondary-color: #b2d430;
+  --secondaryDark-color: #1d2401;
+  --light-color: #fff5f5;
+  --medium-color: #424748;
+  --dark-color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  margin: 0;
+  padding-bottom: 0.5em;
+  font-family: "Amiri Quran", serif;
+  color: var(--light-color);
+}
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main {
+  flex: 1;
+  padding: 2%;
+  background-color: var(--primary-color);
+}
+
+header {
+  background-color: var(--dark-color);
+}
+
+footer {
+  padding: 1%;
+  text-align: center;
+  background-color: var(--dark-color);
+}
+
+footer p {
+  color: var(--secondary-color);
+  font-family: "Amiri Quran", serif;
+  font-size: 1.5em;
+}
+
+footer span {
+  color: var(--primary-color);
+  font-family: "Oooh Baby", cursive;
+  font-size: larger;
+}
+
+footer a {
+  color: var(--light-color);
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: var(--light-color);
+}
+
+nav a {
+  font-family: "Amiri Quran", serif;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: var(--primary-color);
+  transition: transform 0.3s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+/* Ids */
+#welcomeText {
+  font-family: "Amiri Quran", serif;
+  color: var(--light-color);
+  font-size: 150%;
+}
+
+#wiredText {
+  color: var(--secondary-color);
+}
+
+#whimsyText {
+  font-family: "Oooh Baby", cursive;
+  font-size: 175%;
+  color: var(--primary-color);
+}
+
+#wiredMessage {
+  color: var(--secondary-color);
+  font-size: 2em;
+  letter-spacing: 5px;
+}
+
+#logout {
+  padding: 8px;
+  font-size: large;
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#logout:hover {
+  background-color: var(--dark-color);
+  color: var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+#userName {
+  color: var(--secondary-color);
+}
+
+/* Class Selectors */
+
+.centered {
+  text-align: center;
+}
+
+/* View Body Container */
+.cardBodyContainer {
+  padding-left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+/* Home Page & Dashboard */
+.userPostsContainer {
+  width: 100%;
+}
+.userPosts,
+.postCards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.userPost,
+.postCard {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: var(--light-color);
+  border: 1px groove var(--light-color);
+  border-radius: 8px;
+}
+
+.userPost a,
+.postCard a {
+  font-family: "Oooh Baby", cursive;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--dark-color);
+}
+
+.postCard a:hover {
+  background-color: var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.postCard p {
+  font-style: italic;
+}
+
+/* Login & Sign Up*/
+.signUpCard,
+.loginCard {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 500px;
+}
+
+.signUpForm,
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
+.signUpForm input,
+.loginForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5%;
+  border-radius: 8px;
+}
+
+.signUpForm button,
+.loginForm button {
+  padding: 1%;
+  font-family: "Oooh Baby", cursive;
+  font-size: 1.5em;
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  border-radius: 8px;
+}
+
+.signUpForm button:hover,
+.loginForm button:hover {
+  color: var(--secondary-color);
+  transition: transform 0.3s;
+  border-radius: 8px;
+}
+
+.loginText,
+.signUpText {
+  display: flex;
+  justify-content: center;
+}
+
+.loginText a,
+.signUpText a {
+  color: var(--primary-color);
+  transition: transform 0.3s;
+}
+
+.loginText a:hover,
+.signUpText a:hover {
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+/* Single, create & Edit Post */
+.createPostContainer,
+.editPostContainer,
+.singlePostContainer {
+  width: 100%;
+  background-color: var(--medium-color);
+}
+
+.post {
+  padding: 2%;
+}
+
+.postInfo {
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postInfo span {
+  color: var(--secondary-color);
+}
+
+.postContent {
+  margin-bottom: 1.5%;
+  padding: 1.5%;
+  background-color: var(--light-color);
+}
+
+.userActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userActions button:hover {
+  background-color: var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+.createPost,
+.editPost,
+.comments {
+  padding: 2%;
+  color: #2dddf8;
+  font-family: "Oooh Baby", cursive;
+  font-size: 1.5em;
+}
+
+.createForm form,
+.editForm form,
+.commentForm form {
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+form textarea {
+  height: 75px;
+}
+
+.newPostForm {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1%;
+  background-color: var(--light-color);
+  border: 1px groove var(--secondary-color);
+  border-radius: 8px;
+}
+
+.createForm button,
+.editForm button,
+.newPostForm button,
+.commentForm button {
+  margin-top: 1%;
+  padding: 5px;
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+
+.createForm button:hover,
+.editForm button:hover,
+.newPostForm button:hover,
+.commentForm button:hover {
+  color: var(--dark-color);
+  background-color: #b2d430;
+  transition: transform 0.3s;
+}
+
+.commentsCard {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: var(--dark-color);
+}
+
+.commentsCard li {
+  margin-bottom: 1.5em;
+  list-style: none;
+}
+
+.commentsCard span {
+  padding-left: 1.5em;
+  color: var(--primaryLight-color);
+}
+
+/* Responsive styles for screens 320px and below */
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+  nav a {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .loginCard {
+    width: 320px;
+  }
+}
+
+@media (max-width: 425px) {
+  .postCard {
+    flex-direction: column;
+  }
+}
+/* Responsive styles for screens 2560px and below */
+@media (min-width: 2560px) {
+  body {
+    font-size: 20px;
+  }
+}

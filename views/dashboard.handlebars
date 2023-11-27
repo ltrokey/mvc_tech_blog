@@ -1,0 +1,42 @@
+<div class="userPostsContainer">
+  <div>
+    <h2>Welcome to Your Dashboard,
+      <span id="userName">{{user.username}}</span>!</h2>
+
+    <h3>Your Blog Posts:</h3>
+  </div>
+
+  <div>
+    <div class="userPosts">
+      {{#if userPosts.length}}
+        {{#each userPosts}}
+
+          <div class="userPost">
+            <h3><a href="/post/{{id}}">{{title}}</a></h3>
+
+            {{#if (compareDates updated_at created_at)}}
+              <p class="post-meta">Updated on {{format_date updated_at}}</p>
+
+            {{else}}
+              <p class="post-meta">Posted on {{format_date created_at}}</p>
+            {{/if}}
+
+          </div>
+
+        {{/each}}
+
+      {{else}}
+        <p class="centered">You haven't created any blog posts yet.</p>
+      {{/if}}
+    </div>
+
+    <div class="newPostForm centered">
+      <h3>Add a new blog post?</h3>
+
+      <form action="/createPost" method="GET">
+        <button type="submit">New Post</button>
+      </form>
+
+    </div>
+  </div>
+</div>
